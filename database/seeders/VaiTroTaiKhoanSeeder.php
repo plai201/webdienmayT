@@ -12,7 +12,6 @@ class VaiTroTaiKhoanSeeder extends Seeder
      */
     public function run(): void
     {
-        \DB::statement("INSERT INTO `vai_tro_tai_khoan` VALUES 15,1,4),(22,1,1);
-");
+        \DB::statement("INSERT INTO `vai_tro_tai_khoan` VALUES (15,1,4),(22,1,1);");
     }
 }
