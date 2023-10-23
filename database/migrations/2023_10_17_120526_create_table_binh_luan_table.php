@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('NoiDung');
             $table->string('TenDanhGia');
             $table->string('SoDienThoai')->default(null);
-            $table->integer('MaSanPham');
+            $table->unsignedBigInteger('MaSanPham');
             $table->string('NgayDanhGia');
             $table->string('AnhDanhGia')->default(null);
             $table->string('TenAnh')->default(null);

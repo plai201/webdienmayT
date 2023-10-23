@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('SoLuong');
             $table->integer('TinhNangMa');
             $table->integer('GiaTri');
-            $table->integer('MaTaiKhoan');
+            $table->unsignedBigInteger('MaTaiKhoan');
             $table->timestamps();
             $table->foreign('MaTaiKhoan')
                 ->references('MaTaiKhoan')->on('users')

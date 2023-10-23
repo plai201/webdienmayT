@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('san_pham_thong_so', function (Blueprint $table) {
             $table->bigIncrements("MaSPTS")->primary();
-            $table->integer('MaSanPham')->primary();
-            $table->integer('MaThongSo')->primary();
+            $table->unsignedBigInteger('MaSanPham')->primary();
+            $table->unsignedBigInteger('MaThongSo')->primary();
             $table->string('GiaTri');
             $table->timestamps();
             $table->softDeletes();

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('vai_tro_tai_khoan', function (Blueprint $table) {
             $table->bigIncrements('MaVTTK');
-            $table->integer('MaVaiTro');
-            $table->integer('MaTaiKhoan');
+            $table->unsignedBigInteger('MaVaiTro');
+            $table->unsignedBigInteger('MaTaiKhoan');
             $table->timestamps();
             $table->foreign('MaVaiTro')
                 ->references('MaVaiTro')->on('vai_tro')

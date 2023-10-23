@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('danh_muc_thong_so', function (Blueprint $table) {
-            $table->integer('MaDanhMuc')->primary();
-            $table->integer('MaThongSo')->primary();
+            $table->unsignedBigInteger('MaDanhMuc')->primary();
+            $table->unsignedBigInteger('MaThongSo')->primary();
             $table->timestamps();
 
             $table->foreign('MaDanhMuc')->references('MaDanhMuc')->on('danh_muc_san_pham'); // Ví dụ về khóa ngoại đến bảng "danh_muc"

@@ -28,10 +28,10 @@ class CreateSanphamTable extends Migration
 
 
             $table->integer('TrangThai')->default('2')->comment('Trạng thái # Trạng thái sản phẩm: 1-khóa, 2-khả dụng');
-            $table->integer('MaDanhMuc')->comment('Loại sản phẩm # Mã danh muc san pham');
+            $table->unsignedBigInteger('MaDanhMuc')->comment('Loại sản phẩm # Mã danh muc san pham');
 
-            $table->integer('MataiKhoan')->comment('Tài khoản # Mã tài khoản');
-            $table->integer('MaNhanHang')->comment('Nhãn hàng # Mã nhãn hàng, thuương hiệu');
+            $table->unsignedBigInteger('MataiKhoan')->comment('Tài khoản # Mã tài khoản');
+            $table->unsignedBigInteger('MaNhanHang')->comment('Nhãn hàng # Mã nhãn hàng, thuương hiệu');
             $table->integer('LuotXem')->default('0');
             $table->integer('SanPhamSoLuong')->default('0');
             $table->integer('SanPhamBan')->default('0');

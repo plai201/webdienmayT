@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('QuyenHuyen')->default(null);
             $table->string('PhuongXa')->default(null);
             $table->string('DiaChi')->default(null);
-            $table->integer('MaTaiKhoan');
+            $table->unsignedBigInteger('MaTaiKhoan');
             $table->timestamps();
             $table->foreign('MaTaiKhoan')
                 ->references('MaTaiKhoan')->on('users')

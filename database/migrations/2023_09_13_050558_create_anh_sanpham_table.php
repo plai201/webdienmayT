@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('anh_san_pham', function (Blueprint $table) {
             $table->bigIncrements('MaAnh')->comment('Mã sản phẩm');
-            $table->integer('MaSanPham')->comment('Mã sản phẩm # Mã sản phẩm');
+            $table->unsignedBigInteger('MaSanPham')->comment('Mã sản phẩm # Mã sản phẩm');
             $table->string('AnhChiTiet', 200);
             $table->string('TenAnh', 200);
             $table->timestamps();
