@@ -15,10 +15,7 @@ return new class extends Migration
             $table->bigIncrements('MaVTTK');
             $table->unsignedBigInteger('MaVaiTro');
             $table->unsignedBigInteger('MaTaiKhoan');
-             $table->foreign('MaVaiTro')
-                ->references('MaVaiTro')->on('vai_tro');
-             $table->foreign('MaTaiKhoan')
-                ->references('MaTaiKhoan')->on('users');
+
          });
     }
 
