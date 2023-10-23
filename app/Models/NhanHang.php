@@ -13,10 +13,6 @@ class NhanHang extends Model
     use SoftDeletes;
     protected $table='nhan_hang';
     protected $primaryKey='MaNhanHang';
+    protected $guarded=[];
 
-
-    protected $fillable = [
-        'TenNhanHang',
-        'Anh',
-    ];
 }

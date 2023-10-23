@@ -24,7 +24,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
-                        <form action="{{route('san-pham.capNhap',['MaSanPham' =>$sanpham->MaSanPham])}}" method="post" enctype="multipart/form-data">
+                        <form action="{{route('san-pham.capNhap',['MaSanPham' =>$sanpham->MaSanPham])}}" method="post"  enctype="multipart/form-data">
                             @csrf
                             <div class="form-group ">
                                 <label for="exampleFormControlInput1">Tên sản phẩm</label>
@@ -82,6 +82,15 @@
                                        placeholder="Giá bán sản phẩm"
                                        value="{{$sanpham->GiaBan}}">
                             </div>
+                            <div class="form-group ">
+                                <label for="exampleFormControlInput1">Nhập số lượng sản phẩm</label>
+                                <input type="text"
+                                       name="SanPhamSoLuong"
+                                       class="form-control"
+                                       id="exampleFormControlInput1"
+                                       placeholder="Số lượng sản phẩm"
+                                       value="{{$sanpham->SanPhamSoLuong}}">
+                            </div>
 
                             <div class="form-group">
                                 <label for="exampleFormControlFile1">Ảnh sản phẩm</label>
@@ -119,9 +128,19 @@
                                     @foreach($sanpham->the as $the)
                                         <option value="{{$the->TenThe}}" selected>{{$the->TenThe}}</option>
                                     @endforeach
-
                                 </select>
-
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Trạng thái sản phẩm</label>
+                                <select class="form-control" name="TrangThai" >
+                                    @if( $sanpham->TrangThai == 2 )
+                                        <option selected value="2">Hiển thị</option>
+                                        <option  value="1">Ẩn</option>
+                                    @else
+                                        <option  value="2">Hiển thị</option>
+                                        <option selected value="1">Ẩn</option>
+                                    @endif
+                                </select>
                             </div>
 
                             <div class="form-group">
@@ -153,7 +172,7 @@
                                 <!-- Add more rows for additional specifications -->
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Cập nhập sản phẩm</button>
                         </form>
                     </div>
                 </div>

@@ -46,6 +46,9 @@ class SanPhamController extends Controller
     }
     public function trangChu(){
         $SanPham= $this->sanpham->latest()->paginate(5);
+        if($key= \request()->key){
+            $SanPham =$this->sanpham->orderBy('created_at','DESC')->where('TenSanPham', 'LIKE', '%'.$key.'%')->paginate(5);
+        }
         return view('admin.sanpham.trangChu',compact('SanPham'));
     }
 
@@ -65,6 +68,7 @@ class SanPhamController extends Controller
                 'GiaGoc' => $request->GiaGoc,
                 'GiamGia' =>$request->GiamGia,
                 'GiaBan' => $request->GiaBan,
+                'SanPhamSoLuong' => $request->SanPhamSoLuong,
                 'MoTaSanPham' => $request->MoTaSanPham,
                 'MataiKhoan' => auth()->id(),
                 'MaDanhMuc' => $request->MaDanhMuc,
@@ -77,7 +81,6 @@ class SanPhamController extends Controller
                 $dataSanPham['TenAnh'] = $dataUpLoad['file_name'];
             }
             $sanpham = $this->sanpham->create($dataSanPham);
-
 
             //them hình ảnh vào bảng anh_sanpham
             if($request->hasFile('AnhChiTiet')){
@@ -120,17 +123,6 @@ class SanPhamController extends Controller
                 $sanpham->sanphamthongso()->attach($thongSoData);
             }
 
-            //thêm thông số mới thêm vào bảng thông số kỹ thuật
-//            if(!empty($request->TenThongSo)){
-//                foreach ($request->TenThongSo as $item){
-//                    $thongsokythuat = $this->thongsokythuat->firstOrCreate([
-//                        'TenThongSo'=>$item
-//                    ]);
-//                    $mathongso[] = $thongsokythuat->MaThongSo;
-//                }
-//                $sanpham->sanphamthongso()->attach($mathongso);
-//            }
-            //them thong so ky thuat vào bảng sản phẩm thông số
             DB::commit();
 
             return redirect()->route('san-pham.trangChu');
@@ -161,11 +153,12 @@ class SanPhamController extends Controller
                 'GiaGoc' => $request->GiaGoc,
                 'GiamGia' =>$request->GiamGia,
                 'GiaBan' => $request->GiaBan,
+                'SanPhamSoLuong' => $request->SanPhamSoLuong,
                 'MoTaSanPham' => $request->MoTaSanPham,
                 'MataiKhoan' => auth()->id(),
                 'MaDanhMuc' => $request->MaDanhMuc,
-                'MaNhanHang' => $request->MaNhanHang
-
+                'MaNhanHang' => $request->MaNhanHang,
+                'TrangThai' => $request->TrangThai
             ];
             $dataUpLoad = $this->traitUpLoadImg($request,'AnhSanPham','sanpham');
             if(!empty($dataUpLoad)){
@@ -293,14 +286,18 @@ class SanPhamController extends Controller
     }
 
     public function search(Request $request){
-        $output .='';
-        $sanpham =$this->sanpham->where('TenSanPham', 'Like', '%'.$request->search.'%')->orwhere('GiaBan',
-            'Like', '%'.$request->search.'%')->get();
-        foreach ($sanpham as $sp){
-            $output .=
-                '<tr> <td>'.$sanpham->TenSanPham.'</td></tr>';
+        $data = $request->all();
+        if($data['key']){
+            $sanpham =$this->sanpham->where('TenSanPham', 'LIKE', '%'.$data['key'].'%')->get();
+            $output ='
+            <ul class="dropdown-menu " style="display: block; position: relative; cursor: pointer;">';
+            foreach ($sanpham as $sp){
+                $output .= '<li class="auto-complete">  '.$sp->TenSanPham.'  </li>';
+            }
+            $output .='</ul>';
+            return $output;
         }
-        return response($output);
+
     }
     public function getsanphamthongso(){
         $DanhMucChaCon = new DanhMucChaCon($this->danhmucsanpham->all());

@@ -19,16 +19,21 @@
                 <div class="row">
 
                     <div class="col-md-12">
-                        <div class="">
-                            <!-- Actual search box -->
-                            <div class="form-group has-search">
-                                <span class="fa fa-search form-control-feedback"></span>
-                                <input type="text" class="form-control" name="search" placeholder="Search" id="search">
-                            </div>
-                        </div>
-                        <a href="{{route('san-pham.danh-sach-da-xoa')}}" class="btn btn-success float-right m-2">Khôi phục</a>
+                        @can('danh-muc-san-pham-khoi-phuc')
+                            <a href="{{route('san-pham.danh-sach-da-xoa')}}" class="btn btn-success float-right m-2">Khôi phục</a>
+                        @endcan
                         <a href="{{route('san-pham.them')}}" class="btn btn-success float-right m-2">Thêm</a>
-                        <a href="#" data-url="{{ route('san-pham.delete') }}" class="btn btn-danger  m-2" id="deleteAllSelect">Xoá mục chọn</a>
+                        <a href="#" data-url="{{ route('san-pham.delete') }}" class="btn btn-danger float-right  m-2" id="deleteAllSelect">Xoá mục chọn</a>
+                        <form class="form-inline "  autocomplete="off">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <div class="form-group w-50  ">
+                                <input class="form-control w-100 position-relative" name="key" id="keywords" placeholder="Nhập từ khoá">
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                        <div id="search_ajax" class=" position-absolute translate-middle"></div>
 
                     </div>
                     <div class="col-md-12">
@@ -42,6 +47,8 @@
                                     <th scope="col">Giảm giá</th>
                                     <th scope="col">Giá bán</th>
                                     <th scope="col">Trả góp</th>
+                                    <th scope="col">Số lượng tồn kho</th>
+                                    <th scope="col">Số lượng đã bán</th>
                                     <th scope="col">Danh mục</th>
                                     <th scope="col">Nhãn hàng</th>
                                     <th scope="col">Ảnh</th>
@@ -59,13 +66,22 @@
                                         <td>{{$sanpham->GiamGia}}</td>
                                         <td>{{$sanpham->GiaBan}}</td>
                                         <td>{{$sanpham->TraGop}}</td>
+                                        <td>{{$sanpham->SanPhamSoLuong}}</td>
+                                        <td>{{$sanpham->SanPhamBan}}</td>
                                         <td>{{($sanpham->danhmucsanpham->TenDanhMuc)}}</td>
                                         <td>{{($sanpham->nhanhang->TenNhanHang)}}</td>
                                         <td>
                                             <img src="{{$sanpham->AnhSanPham}}" alt="{{$sanpham->TenAnh}}" class="img-thumbnail" style="width:80px;">
                                         </td>
 
-                                        <td>{{$sanpham->TrangThai}}</td>
+
+                                        <td>
+                                            @if($sanpham->TrangThai ==2)
+                                                Hiển thị
+                                            @else
+                                                Ẩn
+                                            @endif
+                                        </td>
                                         <td>
                                             <a href="{{route('san-pham.sua',['MaSanPham' => $sanpham->MaSanPham])}}" class="btn btn-default">Sửa</a>
                                             <a href="" data-url="{{route('san-pham.xoa',['MaSanPham' => $sanpham->MaSanPham])}}" class="btn btn-danger delete_sp">Xóa</a
@@ -77,7 +93,7 @@
 
                     </div>
                     <div class="col-md-12">
-                        {{ $SanPham->links() }}
+                        {{ $SanPham->appends(request()->all())->links() }}
                     </div>
 
                 </div>
@@ -93,4 +109,35 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="{{asset('vendors/sweetalert/sweetalert2@11.net_npm_sweetalert2@11')}}"></script>
     <script src="{{asset('adminpublic/sanpham/trangchu/trangchu.js')}}"></script>
+    <script>
+        $(document).ready(function () {
+            $('#keywords').keyup(function () {
+                var key = $(this).val();
+                var _token = $('input[name="_token"]').val();  // Get the value of _token
+
+                if (key != '') {
+                    $.ajax({
+                        url: "{{ route('search') }}",
+                        method: "POST",
+                        data: { key: key, _token: _token },  // Pass _token as its value, not the jQuery object
+                        success: function (data) {
+                            console.log(data)
+                            $('#search_ajax').fadeIn();
+                            $('#search_ajax').html(data);
+                        },
+                        error: function (xhr, status, error) {
+                            console.error(xhr.responseText);  // Log the error to the console
+                        }
+                    });
+                } else {
+                    $('#search_ajax').fadeOut();
+                }
+            });
+            $(document).on('click', '.auto-complete', function () {
+                $('#keywords').val($(this).text());
+                $('#search_ajax').fadeOut();
+            });
+        });
+
+    </script>
 @endsection

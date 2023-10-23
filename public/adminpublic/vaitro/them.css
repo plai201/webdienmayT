@@ -1,0 +1,17 @@
+.list-group{
+    flex-direction: row !important;
+    justify-content: space-around;
+
+}
+.card-header, .list-group-item {
+    display: flex !important;
+    align-items: center;
+    font-size: 18px;
+
+}
+.card-header input, .list-group-item input{
+    margin-right: 10px;
+}
+input[type='checkbox']{
+    transform: scale(1.2);
+}

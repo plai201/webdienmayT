@@ -15,7 +15,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
-                        <form action="{{route('nhan-hang.them-nhan-hang')}}" method="post">
+                        <form action="{{route('nhan-hang.them-nhan-hang')}}" enctype="multipart/form-data" method="post">
                             @csrf
                             <div class="form-group ">
                                 <label for="exampleFormControlInput1">Tên Nhãn hàng</label>
@@ -26,8 +26,8 @@
                                        placeholder="Nhập tên nhãn hàng">
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlFile1">Chọn ảnh</label>
-                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                <label for="exampleFormControlFile1">Ảnh nhãn hàng</label>
+                                <input type="file" name="AnhNhanHang" class="form-control-file" id="exampleFormControlFile1">
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>

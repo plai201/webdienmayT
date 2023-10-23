@@ -36,6 +36,9 @@ function thongBaoDelete(event) {
 
 $(function (e){
     $(document).on('click', '.delete_sp',thongBaoDelete)
+    $(document).on('click', '.delete_tk',thongBaoDelete)
+    $(document).on('click', '.delete_vt',thongBaoDelete)
+    $(document).on('click', '.delete_km',thongBaoDelete)
     // $(document).on('click', '#select_all_ids',deleteAllSelect)
     // $(document).on('keyup','#search', search)
 

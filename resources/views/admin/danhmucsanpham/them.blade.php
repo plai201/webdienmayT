@@ -19,12 +19,15 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
-                        <form action="{{route('danh-muc-san-pham.themDanhMuc')}}" method="post">
+                        <form action="{{route('danh-muc-san-pham.themDanhMuc')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group ">
                                 <label for="exampleFormControlInput1">Tên danh mục</label>
-                                <input type="text" name="TenDanhMuc" class="form-control" id="exampleFormControlInput1" placeholder="Nhập tên danh mục">
+                                <input type="text" name="TenDanhMuc" class=" @error('TenDanhMuc') is-invalid @enderror form-control" id="exampleFormControlInput1" placeholder="Nhập tên danh mục">
                             </div>
+                            @error('TenDanhMuc')
+                            <div class="alert alert-danger thong-bao">{{ $message }}</div>
+                            @enderror
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Danh mục cha</label>
                                 <select class="form-control" name="DanhMucCha" id="exampleFormControlSelect1">
@@ -32,6 +35,11 @@
                                     {!!$htmlOption!!}
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlFile1">Ảnh danh mục</label>
+                                <input type="file" name="AnhDanhMuc">
+                            </div>
+
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Chi tiết kỹ thuật</label>
                                     <div class="product-specs">

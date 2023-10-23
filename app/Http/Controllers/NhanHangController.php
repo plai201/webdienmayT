@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\NhanHang;
+use App\Traits\ImageTrait;
 use Illuminate\Http\Request;
 
 class NhanHangController extends Controller
 {
+    use ImageTrait;
     private $nhanhang;
     public function __construct(NhanHang $nhanhang)
     {
@@ -15,6 +17,9 @@ class NhanHangController extends Controller
 
     public function trangChu(){
         $nhanhang= $this->nhanhang->latest()->paginate(5);
+        if($key= \request()->key){
+            $nhanhang =$this->nhanhang->orderBy('created_at','DESC')->where('TenNhanHang', 'LIKE', '%'.$key.'%')->paginate(5);
+        }
         return view('admin.nhanhang.trangChu',compact('nhanhang'));
     }
 
@@ -22,9 +27,15 @@ class NhanHangController extends Controller
         return view('admin.nhanhang.them');
     }
     public function themNhanHang(Request $request){
-        $this->nhanhang->create([
+        $datanhanhang=[
             'TenNhanHang' => $request->TenNhanHang,
-        ]);
+        ];
+        $dataUpLoad = $this->traitUpLoadImg($request,'AnhNhanHang','nhanhang');
+        if(!empty($dataUpLoad)){
+            $datanhanhang['AnhNhanHang'] = $dataUpLoad['file_path'];
+            $datanhanhang['TenAnh'] = $dataUpLoad['file_name'];
+        }
+        $this->nhanhang->create($datanhanhang);
         return redirect()->route('nhan-hang.trangChu');
     }
     public function sua($maNhanHang){
@@ -32,9 +43,16 @@ class NhanHangController extends Controller
         return view('admin.nhanhang.sua',compact('nhanhang'));
     }
     public function capNhap(Request $request,$maNhanHang){
-        $this->nhanhang->find($maNhanHang)->update([
-            'TenNhanHang' => $request->TenNhanHang
-        ]);
+        $datanhanhang=[
+            'TenNhanHang' => $request->TenNhanHang,
+        ];
+        $dataUpLoad = $this->traitUpLoadImg($request,'AnhNhanHang','nhanhang');
+        if(!empty($dataUpLoad)){
+            $datanhanhang['AnhNhanHang'] = $dataUpLoad['file_path'];
+            $datanhanhang['TenAnh'] = $dataUpLoad['file_name'];
+        }
+
+        $this->nhanhang->find($maNhanHang)->update($datanhanhang);
         return redirect()->route('nhan-hang.trangChu');
     }
 
@@ -62,5 +80,19 @@ class NhanHangController extends Controller
             $nhanHang->forceDelete();
         }
         return redirect()->route('nhan-hang.danh-sach-da-xoa');
+    }
+    public function search(Request $request){
+        $data = $request->all();
+        if($data['key']){
+            $nhanhang =$this->nhanhang->where('TenNhanHang', 'LIKE', '%'.$data['key'].'%')->get();
+            $output ='
+            <ul class="dropdown-menu " style="display: block; position: relative; cursor: pointer;">';
+            foreach ($nhanhang as $nh){
+                $output .= '<li class="auto-complete">  '.$nh->TenNhanHang.'  </li>';
+            }
+            $output .='</ul>';
+            return $output;
+        }
+
     }
 }

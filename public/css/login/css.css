@@ -1,0 +1,211 @@
+.main {
+    background: #fff!important;
+}
+.main {
+    background: #f3f5f7;
+    min-height: calc(100vh - 113px);
+    padding: 4rem 0;
+}
+body {
+    font-family: Roboto,sans-serif;
+    font-size: 1rem;
+    background: #f5f6f8;
+}
+body .container {
+    padding: 0 80px;
+    /*max-width: 1200px;*/
+}
+.login-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 0 4px rgba(0,0,0,.3);
+    border-radius: 3px;
+    padding: 2em 3em;
+    background: #fff;
+}
+.login-wrapper .nav-tabs {
+    border: none;
+}
+
+.login-wrapper .nav {
+    justify-content: space-between;
+}
+.login-wrapper ul {
+    margin-bottom: 1em;
+}
+.nav-tabs {
+    border-bottom: 1px solid #dee2e6;
+}
+.nav {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+.login-wrapper .nav-item {
+    flex: 1;
+    text-align: center;
+    text-transform: uppercase;
+}
+.nav-tabs .nav-item {
+    margin-bottom: -1px;
+}
+.login-wrapper .nav-link {
+    display: inline-flex;
+    font-weight: 400;
+    color: #3f3f3f;
+    border: none;
+    transition: color .2s ease;
+}
+
+.nav-tabs .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+}
+.nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+}
+a {
+    text-decoration: none !important;
+    background-color: transparent;
+}
+.hidden-nav-item {
+    display: none!important;
+}.form-control {
+     font-size: .9em;
+     color: #3f3f3f;
+     min-height: 42px;
+ }
+
+@media (prefers-reduced-motion: reduce)
+.form-control {
+    transition: none;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    margin-bottom: 2.5rem;
+}
+.position-relative {
+    position: relative!important;
+}
+.view-password-wrapper {
+    position: absolute;
+    top: 10px;
+    right: 2%;
+}
+.view-password-wrapper .active {
+    display: none;
+}
+.view-password-wrapper i {
+    display: inline-block;
+    position: relative;
+}
+.view-password-wrapper i {
+    display: inline-block;
+    position: relative;
+}
+.form-sub-actions {
+    align-content: center;
+    font-size: .875em;
+}
+.form-main-actions {
+    margin-top: 2rem;
+}
+.forget-password-button, .login-button, .reg-button, .reset-password-button {
+    padding: 1em;
+    border-radius: 4px;
+    display: flex;
+    width: 100%;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    font-weight: 500;
+    background: #0c5460;
+    color: #f4f4f4;
+    transition: all .2s ease;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 2rem;
+    font-size: 1.4em;
+}
+[type=button], [type=reset], [type=submit], button {
+    -webkit-appearance: button;
+}
+button, select {
+    text-transform: none;
+}
+button, input {
+    overflow: visible;
+}
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+button {
+    border-radius: 0;
+}
+.form-sub-actions .link-forget-password, .form-sub-actions .link-login {
+    color: #3f3f3f;
+    text-decoration: underline;
+}
+.form-sub-actions .link-login {
+    float: right;
+}
+#formForgetPassword .form-header {
+    color: #ec2027;
+    font-weight: 700;
+    font-size: 1.25em;
+}
+
+.form-header {
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+.h2, h2 {
+    font-size: 2rem;
+}
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}

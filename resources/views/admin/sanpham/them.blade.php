@@ -103,6 +103,14 @@
                                        id="exampleFormControlInput1"
                                        placeholder="Nhập phần trăm trả góp: 1-100">
                             </div>
+                            <div class="form-group ">
+                                <label for="exampleFormControlInput1">Nhâp số lượng sản phẩm</label>
+                                <input type="text"
+                                       name="SanPhamSoLuong"
+                                       class="form-control"
+                                       id="exampleFormControlInput1"
+                                       placeholder="Nhập số lượng sản phẩm">
+                            </div>
 
                             <div class="form-group">
                                 <label for="exampleFormControlFile1">Ảnh sản phẩm</label>
@@ -153,7 +161,7 @@
 
 
 
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
                         </form>
                     </div>
                 </div>
@@ -166,7 +174,7 @@
 @endsection
 
 @section('js')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="{{asset('https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js')}}"></script>
 
 
     <script src="{{asset('vendors/select2/code.jquery.com_jquery-3.6.0.min.js')}}"></script>

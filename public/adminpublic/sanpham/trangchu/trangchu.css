@@ -19,3 +19,11 @@
     pointer-events: none;
     color: #aaa;
 }
+.title{
+    text-align: center;
+    font-size: 26px;
+}
+.form-inlinee{
+    display: flex;
+    padding-left:20px ;
+}

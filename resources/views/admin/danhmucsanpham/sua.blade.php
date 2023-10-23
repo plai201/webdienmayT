@@ -6,6 +6,7 @@
 @endsection
 @section('css')
     <link rel="stylesheet" href="{{asset('adminpublic/danhmucsanpham/them/style.css')}}">
+    <link href="{{asset('adminpublic/sanpham/them/them.css')}}" rel="stylesheet" />
 @endsection
 
 @section('content')
@@ -18,7 +19,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
-                        <form action="{{route('danh-muc-san-pham.capNhap',['MaDanhMuc'=>$danhmucsanpham->MaDanhMuc])}}" method="post">
+                        <form action="{{route('danh-muc-san-pham.capNhap',['MaDanhMuc'=>$danhmucsanpham->MaDanhMuc])}}" enctype="multipart/form-data" method="post">
                             @csrf
                             <div class="form-group ">
                                 <label for="exampleFormControlInput1">Tên danh mục</label>
@@ -35,6 +36,17 @@
                                     <option value="0">Chọn danh mục cha</option>
                                     {!!$htmlOption!!}
                                 </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlFile1">Ảnh danh mục</label>
+                                <input type="file" name="AnhDanhMuc" class="form-control-file" id="exampleFormControlFile1">
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <img src="{{$danhmucsanpham->AnhDanhMuc}}" alt="{{$danhmucsanpham->TenAnh}}" class="img_detail_product">
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Chi tiết kỹ thuật</label>
