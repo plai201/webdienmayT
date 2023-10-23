@@ -13,18 +13,21 @@ return new class extends Migration
     {
         Schema::create('khach_hang', function (Blueprint $table) {
             $table->bigIncrements('MaKhachHang');
-            $table->string('Ho');
-            $table->string('Ten');
-            $table->string('GioiTinh');
-            $table->string('NgaySinh');
-            $table->string('SoDienThoai');
-            $table->string('Email');
-            $table->string('ThanhPhoTinh');
-            $table->string('QuyenHuyen');
-            $table->string('PhuongXa');
-            $table->string('DiaChi');
+            $table->string('Ho')->default(null);
+            $table->string('Ten')->default(null);
+            $table->string('GioiTinh')->default(null);
+            $table->string('NgaySinh')->default(null);
+            $table->string('SoDienThoai')->default(null);
+            $table->string('Email')->default(null);
+            $table->string('ThanhPhoTinh')->default(null);
+            $table->string('QuyenHuyen')->default(null);
+            $table->string('PhuongXa')->default(null);
+            $table->string('DiaChi')->default(null);
             $table->integer('MaTaiKhoan');
             $table->timestamps();
+            $table->foreign('MaTaiKhoan')
+                ->references('MaTaiKhoan')->on('users')
+                ->onDelete('CASCADE')->onUpdate('CASCADE');
         });
     }
 

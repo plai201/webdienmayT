@@ -16,6 +16,12 @@ return new class extends Migration
             $table->integer('MaVaiTro');
             $table->integer('MaTaiKhoan');
             $table->timestamps();
+            $table->foreign('MaVaiTro')
+                ->references('MaVaiTro')->on('vai_tro')
+                ->onDelete('CASCADE')->onUpdate('CASCADE');
+            $table->foreign('MaTaiKhoan')
+                ->references('MaTaiKhoan')->on('users')
+                ->onDelete('CASCADE')->onUpdate('CASCADE');
         });
     }
 

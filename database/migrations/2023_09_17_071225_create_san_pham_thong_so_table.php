@@ -12,12 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('san_pham_thong_so', function (Blueprint $table) {
-            $table->bigIncrements("MaSPTS");
-            $table->integer('MaSanPham');
-            $table->integer('MaThongSo');
+            $table->bigIncrements("MaSPTS")->primary();
+            $table->integer('MaSanPham')->primary();
+            $table->integer('MaThongSo')->primary();
             $table->string('GiaTri');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('MaSanPham')
+                ->references('MaSanPham')->on('san_pham')
+                ->onDelete('CASCADE')->onUpdate('CASCADE');
+            $table->foreign('MaThongSo')
+                ->references('MaThongSo')->on('thong_so_ky_thuat')
+                ->onDelete('CASCADE')->onUpdate('CASCADE');
         });
     }
 

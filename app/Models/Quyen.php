@@ -12,6 +12,7 @@ class Quyen extends Model
     protected $table='quyen';
     protected $primaryKey='MaQuyen';
     protected $guarded=[];
+    public $timestamps = false;
     public function quyenChild(){
         return $this->hasMany(Quyen::class, 'MaQuyenCha');
     }

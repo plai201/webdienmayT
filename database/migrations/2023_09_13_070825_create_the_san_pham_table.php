@@ -14,10 +14,16 @@ class CreateTheSanphamTable extends Migration
     public function up()
     {
         Schema::create('the_san_pham', function (Blueprint $table) {
-            $table->bigIncrements('MaTheSanPham')->comment('Mã thẻ sản phẩm');
-            $table->integer('MaSanPham')->comment('Mã sản phẩm');
-            $table->integer('MaThe')->comment('Mã thẻ');
+            $table->bigIncrements('MaTheSanPham')->comment('Mã thẻ sản phẩm')->primary();
+            $table->integer('MaSanPham')->comment('Mã sản phẩm')->primary();
+            $table->integer('MaThe')->comment('Mã thẻ')->primary();
             $table->timestamps();
+            $table->foreign('MaSanPham')
+                ->references('MaSanPham')->on('san_pham')
+                ->onDelete('CASCADE')->onUpdate('CASCADE');
+            $table->foreign('MaThe')
+                ->references('MaThe')->on('the')
+                ->onDelete('CASCADE')->onUpdate('CASCADE');
         });
     }
 

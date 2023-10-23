@@ -11,13 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('binh_luan', function (Blueprint $table) {
-            $table->bigIncrements('MaBinhLuan');
+        Schema::create('danh_gia', function (Blueprint $table) {
+            $table->bigIncrements('MaDanhGia');
             $table->string('NoiDung');
-            $table->string('TenBinhLuan');
-            $table->string('SoDienThoai');
+            $table->string('TenDanhGia');
+            $table->string('SoDienThoai')->default(null);
             $table->integer('MaSanPham');
-            $table->string('NgayBinhLuan');
+            $table->string('NgayDanhGia');
+            $table->string('AnhDanhGia')->default(null);
+            $table->string('TenAnh')->default(null);
+            $table->integer('TrangThai')->default(1);
+             $table->foreign('MaSanPham')
+                ->references('MaSanPham')->on('san_pham')
+                ->onDelete('CASCADE')->onUpdate('CASCADE');
          });
     }
 

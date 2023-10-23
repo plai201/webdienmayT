@@ -20,6 +20,10 @@ return new class extends Migration
             $table->integer('GiaTri');
             $table->integer('MaTaiKhoan');
             $table->timestamps();
+            $table->foreign('MaTaiKhoan')
+                ->references('MaTaiKhoan')->on('users')
+                ->onDelete('CASCADE')->onUpdate('CASCADE');
+
         });
     }
 

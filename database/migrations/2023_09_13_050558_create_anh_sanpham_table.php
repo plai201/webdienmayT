@@ -18,7 +18,9 @@ return new class extends Migration
             $table->string('TenAnh', 200);
             $table->timestamps();
             $table->softDeletes();
-        });
+            $table->foreign('MaSanPham')
+                ->references('MaSanPham')->on('san_pham');
+         });
     }
 
     /**

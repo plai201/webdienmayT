@@ -12,14 +12,26 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('don_hang_chi_tiet', function (Blueprint $table) {
-            $table->bigIncrements('MaDonHangChiTiet');
-            $table->integer('MaSanPham');
+            $table->bigIncrements('MaDonHangChiTiet')->primary();
+            $table->integer('MaSanPham')->primary();
             $table->string('TenSanPham');
             $table->integer('GiaGoc');
             $table->integer('GiaBan');
             $table->integer('GiamGia');
-            $table->string('MaDatDon');
+            $table->integer('SoLuong');
+            $table->string('MaDatDon')->primary();
+            $table->integer('MaKhuyenMai');
             $table->timestamps();
+
+            $table->foreign('MaSanPham')
+                ->references('MaSanPham')->on('san_pham')
+                ->onDelete('CASCADE')->onUpdate('CASCADE');
+            $table->foreign('MaDatDon')
+                ->references('MaDatDon')->on('don_hang')
+                ->onDelete('CASCADE')->onUpdate('CASCADE');
+            $table->foreign('MaKhuyenMai')
+                ->references('MaKhuyenMai')->on('khuyen_mai')
+                ->onDelete('CASCADE')->onUpdate('CASCADE');
         });
     }
 

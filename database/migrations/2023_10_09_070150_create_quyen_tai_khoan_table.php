@@ -11,11 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('quyen_tai_khoan', function (Blueprint $table) {
-            $table->bigIncrements('MaQTK');
-            $table->integer('MaQuyen');
-            $table->integer('MaVaiTro');
-            $table->timestamps();
+        Schema::create('quyen_vai_tro', function (Blueprint $table) {
+            $table->bigIncrements('MaQTK')->primary();
+            $table->integer('MaQuyen')->primary();
+            $table->integer('MaVaiTro')->primary();
+             $table->foreign('MaVaiTro')
+                ->references('MaVaiTro')->on('vai_tro')
+                ->onDelete('CASCADE')->onUpdate('CASCADE');
+            $table->foreign('MaQuyen')
+                ->references('MaQuyen')->on('quyen')
+                ->onDelete('CASCADE')->onUpdate('CASCADE');
         });
     }
 

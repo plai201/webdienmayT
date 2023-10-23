@@ -15,8 +15,9 @@ return new class extends Migration
             $table->bigIncrements('MaQuyen');
             $table->string('TenQuyen');
             $table->string('TenHienThi');
-            $table->timestamps();
-        });
+            $table->integer('MaQuyenCha')->default(0);
+            $table->string('MaPhanQuyen');
+         });
     }
 
     /**

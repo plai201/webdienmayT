@@ -37,10 +37,16 @@ class CreateSanphamTable extends Migration
             $table->integer('SanPhamBan')->default('0');
             $table->timestamps();
             $table->softDeletes();
-//            $table->foreign('MaDanhMuc') //cột khóa ngoại là cột `l_ma` trong table `sanpham`
-//            ->references('MaDanhMuc')->on('danh-muc-san-pham') //cột sẽ tham chiếu đến là cột `l_ma` trong table `loai`
-//            ->onDelete('CASCADE')
-//                ->onUpdate('CASCADE');
+            $table->foreign('MaDanhMuc')
+            ->references('MaDanhMuc')->on('danh_muc_san_pham')
+            ->onDelete('CASCADE')->onUpdate('CASCADE');
+            $table->foreign('MaNhanHang')
+                ->references('MaNhanHang')->on('nhan_hang')
+                ->onDelete('CASCADE')->onUpdate('CASCADE');
+            $table->foreign('MataiKhoan')
+                ->references('MataiKhoan')->on('users')
+                ->onDelete('CASCADE')->onUpdate('CASCADE');
+
         });
     }
 
