@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('quyen_vai_tro', function (Blueprint $table) {
-            $table->bigIncrements('MaQTK')->primary();
+            $table->bigIncrements('MaQTK');
             $table->unsignedBigInteger('MaQuyen')->primary();
             $table->unsignedBigInteger('MaVaiTro')->primary();
              $table->foreign('MaVaiTro')

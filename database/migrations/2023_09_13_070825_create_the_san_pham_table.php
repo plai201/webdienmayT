@@ -14,7 +14,7 @@ class CreateTheSanphamTable extends Migration
     public function up()
     {
         Schema::create('the_san_pham', function (Blueprint $table) {
-            $table->bigIncrements('MaTheSanPham')->comment('Mã thẻ sản phẩm')->primary();
+            $table->bigIncrements('MaTheSanPham')->comment('Mã thẻ sản phẩm');
             $table->unsignedBigInteger('MaSanPham')->comment('Mã sản phẩm')->primary();
             $table->unsignedBigInteger('MaThe')->comment('Mã thẻ')->primary();
             $table->timestamps();
