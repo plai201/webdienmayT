@@ -60,17 +60,14 @@
                         </form>
                     </div>
                 </div>
-                <!-- /.row -->
-            </div><!-- /.container-fluid -->
+             </div>
         </div>
-        <!-- /.content -->
+
     </div>
-    <!-- /.content-wrapper -->
-@endsection
+ @endsection
 
 @section('js')
     <script src="{{asset('vendors/select2/code.jquery.com_jquery-3.6.0.min.js')}}"></script>
-
     <script src="{{asset('vendors/select2/cdn.jsdelivr.net_npm_select2@4.1.0-rc.0_dist_js_select2.min.js')}}"></script>
     <script src="{{asset('adminpublic/vaitro/them.js')}}" ></script>
 @endsection

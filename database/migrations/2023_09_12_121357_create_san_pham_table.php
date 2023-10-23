@@ -22,16 +22,19 @@ class CreateSanphamTable extends Migration
             $table->unsignedInteger('GiamGia')->default('0')->comment('Giảm giá #Phần trăm giảm giá bán sản phẩm');
             $table->unsignedInteger('GiaBan')->default('0')->comment('Giá bán # Giá bán hiện tại của sản phẩm');
             $table->unsignedInteger('TraGop')->default('0')->comment('Trả góp');
-            $table->string('Anh', 200)->comment('Hình đại diện # Hình đại diện của sản phẩm');
+            $table->string('AnhSanPham', 255)->comment('Hình đại diện # Hình đại diện của sản phẩm');
+            $table->string('TenAnh', 255)->comment('Hình đại diện # Hình đại diện của sản phẩm');
             $table->text('MoTaSanPham')->comment('Mô tả # Mô tả về sản phẩm');
+
 
             $table->tinyInteger('TrangThai')->default('2')->comment('Trạng thái # Trạng thái sản phẩm: 1-khóa, 2-khả dụng');
             $table->unsignedTinyInteger('MaDanhMuc')->comment('Loại sản phẩm # Mã danh muc san pham');
 
             $table->unsignedTinyInteger('MataiKhoan')->comment('Tài khoản # Mã tài khoản');
             $table->unsignedTinyInteger('MaNhanHang')->comment('Nhãn hàng # Mã nhãn hàng, thuương hiệu');
-
-
+            $table->integer('LuotXem')->default('0');
+            $table->integer('SanPhamSoLuong')->default('0');
+            $table->integer('SanPhamBan')->default('0');
             $table->timestamps();
             $table->softDeletes();
 //            $table->foreign('MaDanhMuc') //cột khóa ngoại là cột `l_ma` trong table `sanpham`

@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('anh_sanpham', function (Blueprint $table) {
+        Schema::create('anh_san_pham', function (Blueprint $table) {
             $table->bigIncrements('MaAnh')->comment('Mã sản phẩm');
             $table->integer('MaSanPham')->comment('Mã sản phẩm # Mã sản phẩm');
             $table->string('AnhChiTiet', 200);
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('anh_sanpham');
+        Schema::dropIfExists('anh_san_pham');
     }
 };

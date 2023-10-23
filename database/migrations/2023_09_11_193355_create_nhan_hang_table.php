@@ -16,7 +16,8 @@ class CreateNhanHangTable extends Migration
         Schema::create('nhan_hang', function (Blueprint $table) {
             $table->bigIncrements('MaNhanHang')->comment('Mã nhãn hàng');
             $table->string('TenNhanHang', 191)->comment('Tên nhãn hàng # Tên nhãn hàng');
-            $table->string('Anh', 200)->comment('Hình đại diện # Hình đại diện của nhãn hàng');
+            $table->string('AnhNhanHang', 255)->comment('Hình đại diện # Hình đại diện của nhãn hàng');
+            $table->string('TenAnh', 255)->comment('Hình đại diện # Hình đại diện của nhãn hàng');
             $table->timestamps();
             $table->softDeletes();
         });
