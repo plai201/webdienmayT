@@ -15,7 +15,6 @@ return new class extends Migration
             $table->unsignedBigInteger('MaDanhMuc');
             $table->unsignedBigInteger('MaThongSo');
             $table->timestamps();
-            $table->primary(['MaDanhMuc', 'MaThongSo']);
 
             $table->foreign('MaDanhMuc')->references('MaDanhMuc')->on('danh_muc_san_pham'); // Ví dụ về khóa ngoại đến bảng "danh_muc"
             $table->foreign('MaThongSo')->references('MaThongSo')->on('thong_so_ky_thuat'); // Ví dụ về khóa ngoại đến bảng "thong_so"

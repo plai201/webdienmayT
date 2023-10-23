@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string('MaDatDon') ;
             $table->integer('MaKhuyenMai');
             $table->timestamps();
-            $table->primary(['MaDonHangChiTiet', 'MaSanPham', 'MaDatDon']);
 
 
             $table->foreign('MaSanPham')

@@ -18,8 +18,7 @@ class CreateTheSanphamTable extends Migration
             $table->unsignedBigInteger('MaSanPham')->comment('Mã sản phẩm') ;
             $table->unsignedBigInteger('MaThe')->comment('Mã thẻ');
             $table->timestamps();
-            $table->primary(['MaTheSanPham', 'MaSanPham', 'MaThe']);  // Đặt cả 3 trường làm trường chính
-            $table->foreign('MaSanPham')
+             $table->foreign('MaSanPham')
                 ->references('MaSanPham')->on('san_pham')
                 ->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->foreign('MaThe')

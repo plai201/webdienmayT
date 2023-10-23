@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('GiaTri');
             $table->timestamps();
             $table->softDeletes();
-            $table->primary(['MaSPTS', 'MaSanPham', 'MaThongSo']);
 
 
             $table->foreign('MaSanPham')

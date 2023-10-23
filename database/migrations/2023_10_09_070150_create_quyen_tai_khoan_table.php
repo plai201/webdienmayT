@@ -15,8 +15,7 @@ return new class extends Migration
             $table->bigIncrements('MaQTK');
             $table->unsignedBigInteger('MaQuyen')->primary();
             $table->unsignedBigInteger('MaVaiTro')->primary();
-            $table->primary(['MaQTK', 'MaQuyen', 'MaVaiTro']);
-            $table->foreign('MaVaiTro')
+             $table->foreign('MaVaiTro')
                 ->references('MaVaiTro')->on('vai_tro')
                 ->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->foreign('MaQuyen')
