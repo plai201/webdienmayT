@@ -12,7 +12,7 @@
 
 ## Yêu Cầu Hệ Thống
 Trước khi bạn bắt đầu cài đặt, đảm bảo rằng bạn đã cài đặt các yêu cầu hệ thống sau:
-- [PHP](https://www.php.net/) (phiên bản 7.4 trở lên)
+- [PHP](https://www.php.net/) (phiên bản ≥ 8.1)
 - [Composer](https://getcomposer.org/)
 - [MySQL](https://www.mysql.com/) hoặc một hệ thống quản lý cơ sở dữ liệu tương tự.
 
@@ -21,12 +21,25 @@ Trước khi bạn bắt đầu cài đặt, đảm bảo rằng bạn đã cài
 
    ```bash
    git clone https://github.com/plai201/webdienmayT.git
-   composer install
-   copy .env.example .env
-   php artisan key:generate
+   
    
 
- 
+ 2. Di chuyển vào thư mục dự án:
+    ví dụ thư mục có đường dẫn: D:\WebSite\webdienmay
+    ```bash
+    cd /d "D:\WebSite\webdienmayT"
+ 3. Cài đặt composer cho dự án
+    ```bash
+    composer install
+ 4. Tạo file môi trường
+    ```bash
+    copy .env.example .env
+ 5. Tạo khoá ứng dụng
+    ```bash
+    php artisan key:generate
+ 6. Chạy ứng dụng và sử dụng
+     ```bash
+    php artisan serve
 =======
 # webdienmayT
 >>>>>>> 6f8f20cf92502b0d7653ca19c99239bcb477b88c
