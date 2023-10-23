@@ -27,7 +27,7 @@ Trước khi bạn bắt đầu cài đặt, đảm bảo rằng bạn đã cài
     copy .env.example .env
     ```
     Mở file .env vừa tạo và cấu hình
-    ![image](https://github.com/plai201/webdienmayT/assets/88482704/bbb129c6-bcec-44f1-afbc-5f57ddd5c1f1)
+    ![image](https://github.com/plai201/webdienmayT/assets/88482704/bbb129c6-bcec-44f1-afbc-5f57ddd5c1f1){:width="100px"}
 
 
 
