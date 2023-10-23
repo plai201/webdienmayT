@@ -13,15 +13,17 @@ return new class extends Migration
     {
         Schema::create('don_hang_chi_tiet', function (Blueprint $table) {
             $table->bigIncrements('MaDonHangChiTiet');
-            $table->unsignedBigInteger('MaSanPham')->primary();
+            $table->unsignedBigInteger('MaSanPham') ;
             $table->string('TenSanPham');
             $table->integer('GiaGoc');
             $table->integer('GiaBan');
             $table->integer('GiamGia');
             $table->integer('SoLuong');
-            $table->string('MaDatDon')->primary();
+            $table->string('MaDatDon') ;
             $table->integer('MaKhuyenMai');
             $table->timestamps();
+            $table->primary(['MaDonHangChiTiet', 'MaSanPham', 'MaDatDon']);
+
 
             $table->foreign('MaSanPham')
                 ->references('MaSanPham')->on('san_pham')

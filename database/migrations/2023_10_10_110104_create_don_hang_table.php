@@ -15,7 +15,7 @@ return new class extends Migration
             $table->bigIncrements('MaDonHang');
             $table->unsignedBigInteger('MaKhachHang')->default(0);
             $table->unsignedBigInteger('MaGiaoHang');
-            $table->string('MaDatDon')->primary();
+            $table->string('MaDatDon')->unique();
              $table->string('TrangThai');
              $table->string('NgayDonHang');
             $table->timestamps();

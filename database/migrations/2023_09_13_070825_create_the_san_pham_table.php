@@ -15,9 +15,10 @@ class CreateTheSanphamTable extends Migration
     {
         Schema::create('the_san_pham', function (Blueprint $table) {
             $table->bigIncrements('MaTheSanPham')->comment('Mã thẻ sản phẩm');
-            $table->unsignedBigInteger('MaSanPham')->comment('Mã sản phẩm')->primary();
-            $table->unsignedBigInteger('MaThe')->comment('Mã thẻ')->primary();
+            $table->unsignedBigInteger('MaSanPham')->comment('Mã sản phẩm') ;
+            $table->unsignedBigInteger('MaThe')->comment('Mã thẻ');
             $table->timestamps();
+            $table->primary(['MaTheSanPham', 'MaSanPham', 'MaThe']);  // Đặt cả 3 trường làm trường chính
             $table->foreign('MaSanPham')
                 ->references('MaSanPham')->on('san_pham')
                 ->onDelete('CASCADE')->onUpdate('CASCADE');
