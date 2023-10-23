@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('GiamGia');
             $table->integer('SoLuong');
             $table->string('MaDatDon') ;
-            $table->integer('MaKhuyenMai');
+            $table->unsignedBigInteger('MaKhuyenMai');
             $table->timestamps();
 
 
