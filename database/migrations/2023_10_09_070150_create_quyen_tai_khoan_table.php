@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('quyen_vai_tro', function (Blueprint $table) {
             $table->bigIncrements('MaQTK');
-            $table->unsignedBigInteger('MaQuyen')->primary();
-            $table->unsignedBigInteger('MaVaiTro')->primary();
+            $table->unsignedBigInteger('MaQuyen') ;
+            $table->unsignedBigInteger('MaVaiTro') ;
              $table->foreign('MaVaiTro')
                 ->references('MaVaiTro')->on('vai_tro')
                 ->onDelete('CASCADE')->onUpdate('CASCADE');
