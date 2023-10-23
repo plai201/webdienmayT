@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('TenQuyen');
             $table->string('TenHienThi');
             $table->integer('MaQuyenCha')->default(0);
-            $table->string('MaPhanQuyen')->default(null);
+            $table->string('MaPhanQuyen')->nullable()->default(null);
          });
     }
 

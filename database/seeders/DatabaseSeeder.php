@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             CreateVaiTro::class,
             QuyenSeeder::class,
             QuyenVaiTroSeeder::class,
+            VaiTroTaiKhoanSeeder::class,
         ]);
     }
 }

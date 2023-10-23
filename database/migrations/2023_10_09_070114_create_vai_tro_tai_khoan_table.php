@@ -15,14 +15,11 @@ return new class extends Migration
             $table->bigIncrements('MaVTTK');
             $table->unsignedBigInteger('MaVaiTro');
             $table->unsignedBigInteger('MaTaiKhoan');
-            $table->timestamps();
-            $table->foreign('MaVaiTro')
-                ->references('MaVaiTro')->on('vai_tro')
-                ->onDelete('CASCADE')->onUpdate('CASCADE');
-            $table->foreign('MaTaiKhoan')
-                ->references('MaTaiKhoan')->on('users')
-                ->onDelete('CASCADE')->onUpdate('CASCADE');
-        });
+             $table->foreign('MaVaiTro')
+                ->references('MaVaiTro')->on('vai_tro');
+             $table->foreign('MaTaiKhoan')
+                ->references('MaTaiKhoan')->on('users');
+         });
     }
 
     /**
