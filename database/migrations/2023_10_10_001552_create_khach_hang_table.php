@@ -13,16 +13,16 @@ return new class extends Migration
     {
         Schema::create('khach_hang', function (Blueprint $table) {
             $table->bigIncrements('MaKhachHang');
-            $table->string('Ho')->default(null);
-            $table->string('Ten')->default(null);
-            $table->string('GioiTinh')->default(null);
-            $table->string('NgaySinh')->default(null);
-            $table->string('SoDienThoai')->default(null);
-            $table->string('Email')->default(null);
-            $table->string('ThanhPhoTinh')->default(null);
-            $table->string('QuyenHuyen')->default(null);
-            $table->string('PhuongXa')->default(null);
-            $table->string('DiaChi')->default(null);
+            $table->string('Ho')->nullable();
+            $table->string('Ten')->nullable();
+            $table->string('GioiTinh')->nullable();
+            $table->string('NgaySinh')->nullable();
+            $table->string('SoDienThoai')->nullable();
+            $table->string('Email')->nullable();
+            $table->string('ThanhPhoTinh')->nullable();
+            $table->string('QuyenHuyen')->nullable();
+            $table->string('PhuongXa')->nullable();
+            $table->string('DiaChi')->nullable();
             $table->unsignedBigInteger('MaTaiKhoan');
             $table->timestamps();
             $table->foreign('MaTaiKhoan')

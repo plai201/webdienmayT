@@ -166,12 +166,14 @@
                                                                 <span> {{ \Carbon\Carbon::parse($dh->created_at)->format('d/m/Y H:i:s') }}</span>
                                                             </div>
                                                         </div>
-                                                    @if($dh->khuyenmai)
-                                                        @php
+                                                        @if(isset($dh->khuyenmai))
+                                                           @php
                                                         $khuyenmai= $dh->khuyenmai;
                                                         @endphp
                                                     @endif
                                                     @endforeach
+                                                       @if(isset($khuyenmai))
+
                                                         @if($khuyenmai->TinhNangMa==1)
                                                             @php
                                                                 $tongtiengiam = ($tongtien* $khuyenmai->GiaTri)/100;
@@ -187,8 +189,13 @@
                                                         <span>Tổng tiền giảm</span>
                                                         <span> {{number_format($tongtiengiam)}}đ</span>
                                                     </div>
+                                                        @endif
                                                     <div class="product_info">
                                                         <span>Tổng tiền</span>
+                                                        <span> {{number_format($tongtien)}}đ</span>
+                                                    </div>
+                                                    <div class="product_info">
+                                                        <span>Trạng thái</span>
                                                         <span> {{number_format($tongtien)}}đ</span>
                                                     </div>
                                                 </div>

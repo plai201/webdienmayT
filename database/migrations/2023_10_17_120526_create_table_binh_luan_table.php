@@ -15,12 +15,13 @@ return new class extends Migration
             $table->bigIncrements('MaDanhGia');
             $table->string('NoiDung');
             $table->string('TenDanhGia');
-            $table->string('SoDienThoai')->default(null);
+            $table->string('SoDienThoai')->nullable();
             $table->unsignedBigInteger('MaSanPham');
             $table->string('NgayDanhGia');
-            $table->string('AnhDanhGia')->default(null);
-            $table->string('TenAnh')->default(null);
+            $table->string('AnhDanhGia')->nullable();
+            $table->string('TenAnh')->nullable();
             $table->integer('TrangThai')->default(1);
+            $table->integer('DanhGia');
              $table->foreign('MaSanPham')
                 ->references('MaSanPham')->on('san_pham')
                 ->onDelete('CASCADE')->onUpdate('CASCADE');

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('don_hang', function (Blueprint $table) {
             $table->bigIncrements('MaDonHang');
-            $table->unsignedBigInteger('MaKhachHang')->default(0);
+            $table->unsignedBigInteger('MaKhachHang')->nullable();
             $table->unsignedBigInteger('MaGiaoHang');
             $table->string('MaDatDon')->unique();
              $table->string('TrangThai');

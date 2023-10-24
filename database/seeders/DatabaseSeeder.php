@@ -18,6 +18,15 @@ class DatabaseSeeder extends Seeder
             QuyenSeeder::class,
             QuyenVaiTroSeeder::class,
             VaiTroTaiKhoanSeeder::class,
+            PhuongXaSeeder::class,
+            QuanHuyenSeeder::class,
+            ThanhPhoSeeder::class,
+            DanhMucSeeder::class,
+            NhanHangSeeder::class,
+            SanPhamSeeder::class,
+            AnhSanPhamSeeder::class,
+            ThongSoKyThuatSeeder::class,
+            SanPhamThongSoSeeder::class,
         ]);
     }
 }

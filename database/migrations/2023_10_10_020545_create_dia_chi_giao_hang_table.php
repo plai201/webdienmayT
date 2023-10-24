@@ -13,22 +13,20 @@ return new class extends Migration
     {
         Schema::create('giao_hang', function (Blueprint $table) {
             $table->bigIncrements('MaGiaoHang');
-            $table->string('Ho')->default(null);
-            $table->string('Ten')->default(null);
+            $table->string('Ho')->nullable();
+            $table->string('Ten')->nullable();
             $table->string('SoDienThoai');
-            $table->string('Email')->default(null);
+            $table->string('Email')->nullable();
             $table->string('ThanhPhoTinh');
             $table->string('QuanHuyen');
             $table->string('PhuongXa');
             $table->string('DiaChi');
-            $table->string('GhiChu');
-            $table->unsignedBigInteger('MaKhachHang')->default(0);
+            $table->string('GhiChu')->nullable();
+            $table->unsignedBigInteger('MaKhachHang')->nullable();
             $table->integer('ThanhToan')->default(1);
             $table->timestamps();
-            $table->foreign('MaKhachHang')
-                ->references('MaKhachHang')->on('khach_hang')
-                ->onDelete('CASCADE')->onUpdate('CASCADE');
-        });
+
+         });
     }
 
     /**

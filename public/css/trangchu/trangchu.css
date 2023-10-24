@@ -753,3 +753,13 @@ a:hover {
 .sale-pro{
     display: flex;
 }
+.fixed-phone {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 16px;
+}

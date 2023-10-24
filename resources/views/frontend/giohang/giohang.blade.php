@@ -271,7 +271,7 @@
                             <input type="hidden" name="khuyenmai" class="makhuyenmai" value="{{$khuyenmai['MaKhuyenMai']}}">
                             @endforeach
                         @else
-                            <input type="hidden" name="khuyenmai" class="makhuyenmai" value="0">
+                            <input type="hidden" name="khuyenmai" class="makhuyenmai" value="">
 
                         @endif
                         <div class="cart__total-delivery">

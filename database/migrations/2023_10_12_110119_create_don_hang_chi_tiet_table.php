@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('GiamGia');
             $table->integer('SoLuong');
             $table->string('MaDatDon') ;
-            $table->unsignedBigInteger('MaKhuyenMai');
+            $table->unsignedBigInteger('MaKhuyenMai')->nullable();
             $table->timestamps();
 
 
@@ -30,10 +30,8 @@ return new class extends Migration
             $table->foreign('MaDatDon')
                 ->references('MaDatDon')->on('don_hang')
                 ->onDelete('CASCADE')->onUpdate('CASCADE');
-            $table->foreign('MaKhuyenMai')
-                ->references('MaKhuyenMai')->on('khuyen_mai')
-                ->onDelete('CASCADE')->onUpdate('CASCADE');
-        });
+
+         });
     }
 
     /**

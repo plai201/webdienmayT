@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('thong_so_ky_thuat', function (Blueprint $table) {
             $table->bigIncrements('MaThongSo');
-            $table->string('TenThongSo');
+            $table->string('TenThongSo')->unique();
             $table->timestamps();
             $table->softDeletes();
         });

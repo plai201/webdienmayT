@@ -43,9 +43,11 @@
                         <li class="breadcrumb-item">
                             <a href="{{route('trang-chu')}}">Trang chủ</a>
                         </li>
+                        @if($danhmucsanphamcha)
                         <li class="breadcrumb-item">
-                            <a href="{{route('danh-muc-view',['MaDanhMuc'=>$danhmucsanphamcha->MaDanhMuc])}}">{{$danhmucsanphamcha->TenDanhMuc}}</a>
+                                <a href="{{route('danh-muc-view',['MaDanhMuc'=>$danhmucsanphamcha->MaDanhMuc])}}">{{$danhmucsanphamcha->TenDanhMuc}}</a>
                         </li>
+                        @endif
                         <li class="breadcrumb-item active">
                             <a href="">{{$sanpham->danhmucsanpham->TenDanhMuc}}</a>
                         </li>

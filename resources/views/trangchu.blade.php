@@ -658,6 +658,9 @@
             </div>
         </div>
     </div>
+    <div class="fixed-phone">
+        Liên hệ: 0123-456-789
+    </div>
 @endsection
 @section('js')
     <script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js')}}"></script>

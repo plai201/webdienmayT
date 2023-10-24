@@ -39,26 +39,26 @@ class GioHangController extends Controller
             $mataikhoan = $user->MaTaiKhoan;
             if ($khachhang = $this->khachhang->where('MaTaiKhoan', $mataikhoan)->first()){
                 $giaohang = $this->giaohang->where('MaKhachHang', $khachhang->MaKhachHang)->get();
-                $thanhpho = DB::table('devvn_tinhthanhpho')->get();
+                $thanhpho = DB::table('tinh_thanh_pho')->get();
                 return view('frontend.giohang.giohang',compact('thanhpho','giaohang'));
             }
             else{
-                $thanhpho = DB::table('devvn_tinhthanhpho')->get();
+                $thanhpho = DB::table('tinh_thanh_pho')->get();
                 return view('frontend.giohang.giohang',compact('thanhpho'));
             }
         }else{
-            $thanhpho = DB::table('devvn_tinhthanhpho')->get();
+            $thanhpho = DB::table('tinh_thanh_pho')->get();
             return view('frontend.giohang.giohang',compact('thanhpho'));
         }
 
     }
     public function getThanhPho(){
-        $thanhpho = DB::table('devvn_tinhthanhpho')->get();
+        $thanhpho = DB::table('tinh_thanh_pho')->get();
         return view('frontend.giohang.giohang',compact('thanhpho'));
     }
     public function getQuanHuyen(Request $request)
     {
-        $quanhuyen = DB::table('devvn_quanhuyen')
+        $quanhuyen = DB::table('quan_huyen')
             ->where('matp', $request->MaThanhPho)
             ->get();
 
@@ -69,7 +69,7 @@ class GioHangController extends Controller
 
     public function getPhuongXa(Request $request)
     {
-        $phuongxa = DB::table('devvn_xaphuongthitran')
+        $phuongxa = DB::table('phuong_xa')
             ->where('maqh', $request->MaQuanHuyen)
             ->get();
 

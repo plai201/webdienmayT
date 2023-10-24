@@ -6,13 +6,13 @@ trait DiaChiTrait
 {
     public function getThanhPho()
     {
-        $thanhpho = DB::table('devvn_tinhthanhpho')->get();
+        $thanhpho = DB::table('tinh_thanh_pho')->get();
         return $thanhpho;
     }
 
     public function getQuanHuyen(Request $request)
     {
-        $quanhuyen = DB::table('devvn_quanhuyen')
+        $quanhuyen = DB::table('quan_huyen')
             ->where('matp', $request->MaThanhPho)
             ->get();
         if (count($quanhuyen) > 0) {
@@ -22,7 +22,7 @@ trait DiaChiTrait
 
     public function getPhuongXa(Request $request)
     {
-        $phuongxa = DB::table('devvn_xaphuongthitran')
+        $phuongxa = DB::table('phuong_xa')
             ->where('maqh', $request->MaQuanHuyen)
             ->get();
 

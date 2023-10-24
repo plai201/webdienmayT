@@ -15,8 +15,8 @@ return new class extends Migration
             $table->bigIncrements('MaDanhMuc');
             $table->string('TenDanhMuc');
             $table->integer("DanhMucCha")->default(0);
-            $table->string('AnhDanhMuc')->default(null);
-            $table->string('TenAnh')->default(null);
+            $table->string('AnhDanhMuc')->nullable();
+            $table->string('TenAnh')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

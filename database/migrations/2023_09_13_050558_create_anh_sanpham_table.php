@@ -19,7 +19,8 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('MaSanPham')
-                ->references('MaSanPham')->on('san_pham');
+                ->references('MaSanPham')->on('san_pham')
+                ->onDelete('CASCADE')->onUpdate('CASCADE');;
          });
     }
 
