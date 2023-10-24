@@ -51,6 +51,5 @@ Trước khi bắt đầu cài đặt, đảm bảo rằng đã cài đặt các
 8. Tài khoản admin
     - email: nguyenthanhtungksa@gmail.com
     - pass: 12345
-=======
-# webdienmayT
+ # webdienmayT
  
